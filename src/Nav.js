@@ -1,15 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './nav.css';
 import { IoCartSharp } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
+import { IoIosClose } from "react-icons/io";
 
 const Nav = ({auth,setAuth,userDetail}) => {
+   //Handling navbar
+   const [openNav,setOpenNav] = useState(false);
 
   //Handling Logout
   const logout = ()=>{
     setAuth(false);
+  }
+  
+  //Handling Open Navbar
+  const navopen = ()=>{
+    setOpenNav(true);
+  }
+
+  const closenav = ()=>{
+    setOpenNav(false);
   }
   return (
     <>
@@ -39,6 +52,21 @@ const Nav = ({auth,setAuth,userDetail}) => {
           </div>
           <div className="mid_bar">
             <div className="content">
+              <div className="navicon">
+                {openNav ? (
+                  <>
+                    <div className="closenav" onClick={closenav}>
+                      <IoIosClose />
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="navopen" onClick={navopen}>
+                      <FaBars />
+                    </div>
+                  </>
+                )}
+              </div>
               <div className="logo">
                 <img src="./image/logo.png"></img>
               </div>
@@ -58,7 +86,7 @@ const Nav = ({auth,setAuth,userDetail}) => {
               </div>
             </div>
           </div>
-          <div className="bottom_bar">
+          <div className={`bottom_bar ${openNav && "active"}`}>
             <div className="user_detail">
               <div className="icon">
                 <FaRegUser />
