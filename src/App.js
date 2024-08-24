@@ -3,6 +3,7 @@ import Router from './Router'
 import {BrowserRouter} from 'react-router-dom'
 import Nav from './Nav';
 import Product from './Product';
+import Footer from './Footer';
 
 const App = () => {
   //Storing User Detail In useState hooks
@@ -19,6 +20,7 @@ const App = () => {
       <BrowserRouter>
         <Nav auth={auth} setAuth={setAuth} userDetail={userDetail} setSearch={setSearch} search={search}/>
         <Router setUserDetail={setUserDetail} setAuth={setAuth} auth={auth} product={product}/>
+        <Footer/>
       </BrowserRouter>
     </>
   );
