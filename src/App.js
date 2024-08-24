@@ -19,7 +19,7 @@ const App = () => {
     <>
       <BrowserRouter>
         <Nav auth={auth} setAuth={setAuth} userDetail={userDetail} setSearch={setSearch} search={search}/>
-        <Router setUserDetail={setUserDetail} setAuth={setAuth} auth={auth} product={product}/>
+        <Router setUserDetail={setUserDetail} setAuth={setAuth} auth={auth} product={product} setProduct={setProduct}/>
         <Footer/>
       </BrowserRouter>
     </>

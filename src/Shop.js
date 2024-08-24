@@ -1,0 +1,73 @@
+import React from 'react'
+import './shop.css'
+import { CiHeart, CiSearch } from "react-icons/ci";
+import { TfiReload } from "react-icons/tfi";
+
+const Shop = ({product,setProduct}) => {
+  return (
+    <>
+      <div className="shop">
+        <h4>Home / Shop</h4>
+        <div className="shop_container">
+          <div className="left_box">
+            <div className="content">
+              <h3>
+                <span>Prod</span>uct categories
+              </h3>
+              <ul>
+                <li>Headphone</li>
+                <li>Watch</li>
+                <li>Accessories</li>
+                <li>Mobile</li>
+              </ul>
+            </div>
+          </div>
+          <div className="right_box">
+            <div className="content">
+                <div className="top_banner">
+                    <img src="../image/shop-banner.jpg" alt="shopbanner"></img>
+                </div>
+                <h2>Shop Now</h2>
+                <div className="product_container">
+                    {
+                        product.map((curElm) =>
+                        {
+                            return (
+                              <>
+                              <div className="box">
+                                <div className="img_box">
+                                    <img src={curElm.img} alt="productimage"></img>
+                                </div>
+                                <div className="detail">
+                                    <div className="icons">
+                                       <div className="icon">
+                                           <CiHeart />
+                                        </div>
+                                        <div className="icon">
+                                           <TfiReload />
+                                        </div>
+                                        <div className="icon">
+                                           <CiSearch />
+                                        </div>
+                                    </div>
+                                    <h3>{curElm.Name}</h3>
+                                    <h4>${curElm.price}</h4>
+                                    <button>
+                                        Add To Cart
+                                    </button>
+                                </div>
+                                </div>
+                                </>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default Shop
