@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './home.css'
 import { FaTruckFast } from "react-icons/fa6";
@@ -6,7 +6,33 @@ import { CiCreditCard1 } from "react-icons/ci";
 import { GiReceiveMoney } from "react-icons/gi";
 import { GoCommentDiscussion } from "react-icons/go";
 
-const Home = () => {
+const Home = ({product}) => {
+  //Storing Sale Product
+  const [sale,setSale] = useState([]);
+
+  //Storing New Product
+  const [newProduct,setNewProduct] = useState([])
+
+  //Fetching product data using useEffect
+
+  const fetchdata = ()=>{
+    //fetching new product data
+    const salefilter = product.filter((curElm) =>
+    {
+      return curElm.type === 'sale'
+    })
+    setSale(salefilter)
+    //fetching new product data
+    const newproduct = product.filter((curElm) =>
+    {
+      return curElm.type === 'new'
+    })
+    setNewProduct(newproduct)
+  }
+  
+  useEffect(()=>{
+    fetchdata()
+  },[])
   return (
     <>
       <div className="home">
@@ -64,6 +90,30 @@ const Home = () => {
                 <p>Dedicated 24/7 support</p>
               </div>
             </div>
+          </div>
+        </div>
+        <div className='sale_products'>
+          <h2>Hot Deal Products</h2>
+          <div className='container'>
+            {
+              sale.map((curElm) =>
+              {
+                return (
+                  <>
+                    <div className="box">
+                      <div className="img_box">
+                        <img src={curElm.img} alt=''></img>
+                      </div>
+                      <div className="detail">
+                        <h3>{curElm.Name}</h3>
+                        <h4>${curElm.price}</h4>
+                        <button>Add To Cart</button>
+                      </div>
+                    </div>
+                  </>
+                );
+              })
+            }
           </div>
         </div>
       </div>

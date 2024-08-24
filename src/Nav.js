@@ -7,7 +7,7 @@ import { FaRegUser } from "react-icons/fa";
 import { FaBars } from "react-icons/fa";
 import { IoIosClose } from "react-icons/io";
 
-const Nav = ({auth,setAuth,userDetail}) => {
+const Nav = ({auth,setAuth,userDetail,setSearch,search}) => {
    //Handling navbar
    const [openNav,setOpenNav] = useState(false);
 
@@ -71,7 +71,7 @@ const Nav = ({auth,setAuth,userDetail}) => {
                 <img src="./image/logo.png"></img>
               </div>
               <div className="search_bar">
-                <input type="text" placeholder="Search Products..."></input>
+                <input type="text" placeholder="Search Products..." value={search} onChange={(e) => setSearch(e.target.value)}></input>
                 <button>Search</button>
               </div>
               <div className="icons">
