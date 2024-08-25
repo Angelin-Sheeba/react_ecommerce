@@ -5,7 +5,7 @@ import Login from './Login';
 import Home from './Home';
 import Shop from './Shop';
 
-const Router = ({setUserDetail,setAuth,product,setProduct}) => {
+const Router = ({setUserDetail,setAuth,product,setProduct,addtocart}) => {
   return (
     <>
       <Routes>
@@ -23,7 +23,7 @@ const Router = ({setUserDetail,setAuth,product,setProduct}) => {
         />
         <Route
           path="/shop"
-          element={<Shop product={product} setProduct={setProduct} />}
+          element={<Shop addtocart={addtocart} product={product} setProduct={setProduct} />}
         />
       </Routes>
     </>

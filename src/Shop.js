@@ -3,7 +3,7 @@ import './shop.css'
 import { CiHeart, CiSearch } from "react-icons/ci";
 import { TfiReload } from "react-icons/tfi";
 
-const Shop = ({product,setProduct}) => {
+const Shop = ({product,setProduct,addtocart}) => {
   return (
     <>
       <div className="shop">
@@ -52,7 +52,7 @@ const Shop = ({product,setProduct}) => {
                                     </div>
                                     <h3>{curElm.Name}</h3>
                                     <h4>${curElm.price}</h4>
-                                    <button>
+                                    <button onClick={() => addtocart(curElm)}>
                                         Add To Cart
                                     </button>
                                 </div>

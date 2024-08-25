@@ -15,11 +15,24 @@ const App = () => {
 
   //Performing Search
   const [search,setSearch] = useState('');
+
+  //Performing cart function
+  const addtocart = (data) =>
+  {
+    if(auth === false)
+    {
+      alert("Please Login In");
+    }
+    else
+    {
+      alert("cart working");
+    }
+  }
   return (
     <>
       <BrowserRouter>
         <Nav auth={auth} setAuth={setAuth} userDetail={userDetail} setSearch={setSearch} search={search}/>
-        <Router setUserDetail={setUserDetail} setAuth={setAuth} auth={auth} product={product} setProduct={setProduct}/>
+        <Router addtocart={addtocart} setUserDetail={setUserDetail} setAuth={setAuth} auth={auth} product={product} setProduct={setProduct}/>
         <Footer/>
       </BrowserRouter>
     </>
