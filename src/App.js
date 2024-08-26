@@ -93,25 +93,9 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Nav
-          searchProduct={searchProduct}
-          auth={auth}
-          setAuth={setAuth}
-          userDetail={userDetail}
-          setSearch={setSearch}
-          search={search}
-        />
+        <Nav searchProduct={searchProduct} auth={auth} setAuth={setAuth} userDetail={userDetail} setSearch={setSearch} search={search}/>
         <Router
-          userDetail={userDetail}
-          cart={cart}
-          setCart={setCart}
-          addtocart={addtocart}
-          setUserDetail={setUserDetail}
-          setAuth={setAuth}
-          auth={auth}
-          product={product}
-          setProduct={setProduct}
-        />
+          userDetail={userDetail} cart={cart} setCart={setCart} addtocart={addtocart} setUserDetail={setUserDetail} setAuth={setAuth} auth={auth} product={product} setProduct={setProduct}/>
         <Footer />
       </BrowserRouter>
     </>
