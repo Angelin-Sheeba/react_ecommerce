@@ -61,15 +61,58 @@ const App = () => {
         });
         alert("Product is added to the Cart");
       }
-     
     }
   }
+  //peforming search
+  const searchlength = (search || []).length === 0
+  const searchProduct = () =>
+  {
+    if (searchlength) 
+    {
+      alert("Please Enter Something To search")
+      setProduct(Product)
+    } 
+    else 
+    {
+      const searchFilter = Product.filter((x) =>
+      {
+        return x.cat === search
+      })
+      if (searchFilter.length === 0) 
+      {
+        alert("Product Not Found")  
+        setProduct(Product)
+      } 
+      else 
+      {
+        setProduct(searchFilter)
+      }
+    }
+  }
+
   return (
     <>
       <BrowserRouter>
-        <Nav auth={auth} setAuth={setAuth} userDetail={userDetail} setSearch={setSearch} search={search}/>
-        <Router cart={cart} setCart={setCart} addtocart={addtocart} setUserDetail={setUserDetail} setAuth={setAuth} auth={auth} product={product} setProduct={setProduct}/>
-        <Footer/>
+        <Nav
+          searchProduct={searchProduct}
+          auth={auth}
+          setAuth={setAuth}
+          userDetail={userDetail}
+          setSearch={setSearch}
+          search={search}
+        />
+        <Router
+          userDetail={userDetail}
+          cart={cart}
+          setCart={setCart}
+          addtocart={addtocart}
+          setUserDetail={setUserDetail}
+          setAuth={setAuth}
+          auth={auth}
+          product={product}
+          setProduct={setProduct}
+        />
+        <Footer />
       </BrowserRouter>
     </>
   );
