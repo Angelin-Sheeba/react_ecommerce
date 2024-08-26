@@ -5,7 +5,7 @@ import Login from './Login';
 import Home from './Home';
 import Shop from './Shop';
 
-const Router = ({setUserDetail,setAuth,product,setProduct,addtocart}) => {
+const Router = ({setUserDetail, setAuth, product, setProduct, addtocart, setCart, cart}) => {
   return (
     <>
       <Routes>

@@ -4,6 +4,8 @@ import {BrowserRouter} from 'react-router-dom'
 import Nav from './Nav';
 import Product from './Product';
 import Footer from './Footer';
+import {db} from './firebase';
+import {collection, addDoc, getDocs ,updateDoc, doc} from 'firebase/firestore'
 
 const App = () => {
   //Storing User Detail In useState hooks
@@ -17,7 +19,12 @@ const App = () => {
   const [search,setSearch] = useState('');
 
   //Performing cart function
-  const addtocart = (data) =>
+  //Creating useState Hooks to store cart data
+  const [cart,setCart] = useState([])
+
+  //creating cart database reference
+  const cartdbref = collection(db,"cartData")
+  const addtocart = async (data) =>
   {
     if(auth === false)
     {
@@ -25,14 +32,43 @@ const App = () => {
     }
     else
     {
-      alert("cart working");
+      //Matching Cart Product
+      const fetchcartdata = await getDocs(cartdbref);
+      const cartsnap = fetchcartdata.docs.map((doc) => ({id:doc.id, ...doc.data()}))
+      const findcartdata = cartsnap.find((x) =>
+      {
+        return userDetail.id === x.userId && data.id === x.CartId
+      })
+      if (findcartdata)
+      {
+        //Creating cartData ref
+        const cartdataref = doc(cartdbref,findcartdata.id)
+        await updateDoc(cartdataref,{Qty:findcartdata.Qty+1})
+        alert("This Product is already in the Cart")
+      }
+      else
+      {
+        const addCartData = await addDoc(cartdbref, {
+           userId: userDetail.id,
+           Title: data.Name,
+           CartId: data.id,
+           img: data.img,
+           Des: data.des,
+           Cat: data.cat,
+           Price: data.price,
+           Type: data.type,
+           Qty: 1,
+        });
+        alert("Product is added to the Cart");
+      }
+     
     }
   }
   return (
     <>
       <BrowserRouter>
         <Nav auth={auth} setAuth={setAuth} userDetail={userDetail} setSearch={setSearch} search={search}/>
-        <Router addtocart={addtocart} setUserDetail={setUserDetail} setAuth={setAuth} auth={auth} product={product} setProduct={setProduct}/>
+        <Router cart={cart} setCart={setCart} addtocart={addtocart} setUserDetail={setUserDetail} setAuth={setAuth} auth={auth} product={product} setProduct={setProduct}/>
         <Footer/>
       </BrowserRouter>
     </>
