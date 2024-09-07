@@ -1,4 +1,5 @@
-const Product = [
+const Product = 
+[
   {
     id: "1",
     Name: "Aliquam lobortis",

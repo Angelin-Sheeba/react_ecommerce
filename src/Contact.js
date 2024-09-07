@@ -10,28 +10,27 @@ const Contact = ({ auth }) => {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+
   //creating database ref
   const dbref = collection(db, "Message");
+  
   //sending message to firebase database
-  const sendMessage = async () => {
-    if (auth === false) {
-      alert("please Login");
-    } else {
-      if (
-        (name || []).length === 0 ||
-        (email || []).length === 0 ||
-        (subject || []).length === 0 ||
-        (message || []).length === 0
-      ) {
-        alert("please Fill All Blanks");
-      } else {
-        await addDoc(dbref, {
-          Name: name,
-          Email: email,
-          Subject: subject,
-          Message: message,
-        });
-        alert("Message Sent successfully !");
+  const sendMessage = async () => 
+  {
+    if (auth === false) 
+    {
+      alert("please Login")
+    } 
+    else 
+    {
+      if ((name || []).length === 0 ||(email || []).length === 0 ||(subject || []).length === 0 ||(message || []).length === 0) 
+      {
+        alert("please Fill All Blanks")
+      }
+      else 
+      {
+        await addDoc(dbref, {Name: name,Email: email,Subject: subject,Message: message,});
+        alert("Message Sent successfully !")
       }
     }
   };
@@ -81,35 +80,16 @@ const Contact = ({ auth }) => {
             <div className="message_container">
               <h3>Tell Us Your Message</h3>
               <div className="input_box">
-                <input
-                  type="text"
-                  placeholder="Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                ></input>
+                <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}></input>
               </div>
               <div className="input_box">
-                <input
-                  type="email"
-                  placeholder="E-mail"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                ></input>
+                <input type="email" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)}></input>
               </div>
               <div className="input_box">
-                <input
-                  type="text"
-                  placeholder="Subject"
-                  value={subject}
-                  onChange={(e) => setSubject(e.target.value)}
-                ></input>
+                <input type="text" placeholder="Subject" value={subject} onChange={(e) => setSubject(e.target.value)}></input>
               </div>
               <div className="input_box">
-                <textarea
-                  placeholder="Message !"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                ></textarea>
+                <textarea placeholder="Message !" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
               </div>
               <button onClick={sendMessage}>Send</button>
             </div>
@@ -117,7 +97,7 @@ const Contact = ({ auth }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
 export default Contact;

@@ -12,7 +12,7 @@ const Shop = ({product,setProduct,addtocart}) => {
     {
       return x.cat === data;
     });
-    setProduct(filter);
+    setProduct(filter)
   }
 
   const allproduct = () => 
@@ -68,9 +68,7 @@ const Shop = ({product,setProduct,addtocart}) => {
                           </div>
                           <h3>{curElm.Name}</h3>
                           <h4>${curElm.price}</h4>
-                          <button onClick={() => addtocart(curElm)}>
-                            Add To Cart
-                          </button>
+                          <button onClick={() => addtocart(curElm)}>Add To Cart</button>
                         </div>
                       </div>
                     </>

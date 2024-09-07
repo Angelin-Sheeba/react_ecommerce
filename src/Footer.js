@@ -14,32 +14,20 @@ const Footer = () => {
             </div>
             <div className="bottom">
               <div className="detail">
-                <p>
-                  We are a team of designers and developers that create high
-                  quality WordPress, Magento, Prestashop, Opencart.
-                </p>
+                <p>We are a team of designers and developers that create high quality WordPress, Magento, Prestashop, Opencart.</p>
               </div>
               <div className="address">
-                <p>
-                  <span>Address:</span> The Barn, Ullenhall, Henley in Arden
-                  B578 5C, England.
-                </p>
+                <p><span>Address:</span> The Barn, Ullenhall, Henley in Arden B578 5C, England.</p>
               </div>
               <div className="contact">
-                <p>
-                  <span>Mobile:</span> +123.456.789 – +123.456.678
-                </p>
-                <p>
-                  <span>E-mail:</span> support@domain.com
-                </p>
+                <p><span>Mobile:</span> +123.456.789 – +123.456.678</p>
+                <p><span>E-mail:</span> support@domain.com</p>
               </div>
             </div>
           </div>
           <div className="box">
             <div className="header">
-              <h2>
-                <span>Inform</span>ation
-              </h2>
+              <h2><span>Inform</span>ation</h2>
             </div>
             <div className="bottom">
               <ul>

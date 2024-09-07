@@ -46,14 +46,15 @@
 {
     display: none;
 }
-.nav .container .mid_bar .content .logo img
+.nav .container .mid_bar .content .logo h1
 {
     margin-top: 10px;
     width: 150px;
     transition: 0.5s;
     cursor: pointer;
+    color:blue;
 }
-.nav .container .mid_bar .content .logo img:hover
+.nav .container .mid_bar .content .logo h1:hover
 {
     opacity: 0.6;
 }

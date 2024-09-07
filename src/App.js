@@ -9,14 +9,14 @@ import {collection, addDoc, getDocs ,updateDoc, doc} from 'firebase/firestore'
 
 const App = () => {
   //Storing User Detail In useState hooks
-  const [userDetail,setUserDetail] = useState();
-  const [auth,setAuth] = useState(false);
+  const [userDetail,setUserDetail] = useState()
+  const [auth,setAuth] = useState(false)
 
   //Storing Product Data In Usestate Hooks
-  const [product,setProduct] = useState(Product);
+  const [product,setProduct] = useState(Product)
 
   //Performing Search
-  const [search,setSearch] = useState('');
+  const [search,setSearch] = useState('')
 
   //Performing cart function
   //Creating useState Hooks to store cart data
@@ -59,7 +59,7 @@ const App = () => {
            Type: data.type,
            Qty: 1,
         });
-        alert("Product is added to the Cart");
+        alert("Product is added to the Cart")
       }
     }
   }

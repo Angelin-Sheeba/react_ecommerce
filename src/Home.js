@@ -15,21 +15,25 @@ const Home = ({ product, addtocart }) => {
   const [newProduct, setNewProduct] = useState([]);
   //fetching product data using useeffect
 
-  const fetchdata = () => {
+  const fetchdata = () => 
+    {
     //fetch sale product data
-    const salefilter = product.filter((curElm) => {
-      return curElm.type === "sale";
-    });
+    const salefilter = product.filter((curElm) => 
+    {
+      return curElm.type === "sale"
+    })
     setSale(salefilter);
     //fetching new product data
-    const newproduct = product.filter((curElm) => {
+    const newproduct = product.filter((curElm) => 
+    {
       return curElm.type === "new";
-    });
+    })
     setNewProduct(newproduct);
-  };
-  useEffect(() => {
+  }
+  useEffect(() => 
+  {
     fetchdata();
-  }, []);
+  }, [])
 
   return (
     <>
@@ -38,12 +42,8 @@ const Home = ({ product, addtocart }) => {
           <div className="contant">
             <div className="info">
               <h2>x box series s:for best gaming</h2>
-              <p>
-                Get <span>30% off </span>This Week
-              </p>
-              <Link to="/shop">
-                <button>Discover Now</button>
-              </Link>
+              <p>Get <span>30% off </span>This Week</p>
+              <Link to="/shop"><button>Discover Now</button></Link>
             </div>
             <div className="img_box">
               <img src="../image/bg.png" alt="backgroundimage"></img>
@@ -93,12 +93,14 @@ const Home = ({ product, addtocart }) => {
         <div className="sale_products">
           <h2>Hot Deal Products</h2>
           <div className="container">
-            {sale.map((curElm) => {
+            {
+            sale.map((curElm) => 
+              {
               return (
                 <>
                   <div className="box">
                     <div className="img_box">
-                      <img src={curElm.img} alt=""></img>
+                      <img src={curElm.img} alt="curElm image"></img>
                     </div>
                     <div className="detail">
                       <div className="icons">
@@ -114,13 +116,11 @@ const Home = ({ product, addtocart }) => {
                       </div>
                       <h3>{curElm.Name}</h3>
                       <h4>${curElm.price}</h4>
-                      <button onClick={() => addtocart(curElm)}>
-                        Add To Cart
-                      </button>
+                      <button onClick={() => addtocart(curElm)}>Add To Cart</button>
                     </div>
                   </div>
                 </>
-              );
+              )
             })}
           </div>
         </div>
@@ -186,12 +186,14 @@ const Home = ({ product, addtocart }) => {
         <div className="featured_product">
           <h3>Featured Products</h3>
           <div className="container">
-            {newProduct.map((curElm) => {
+            {
+            newProduct.map((curElm) => 
+              {
               return (
                 <>
                   <div className="box">
                     <div className="img_box">
-                      <img src={curElm.img} alt=""></img>
+                      <img src={curElm.img} alt="curElm image"></img>
                     </div>
                     <div className="detail">
                       <h4>{curElm.Name}</h4>
@@ -207,15 +209,10 @@ const Home = ({ product, addtocart }) => {
           <div className="conatiner">
             <div className="main">
               <h3>Newsletter Sign Up</h3>
-              <p>
-                (Get <span>30% OFF</span> coupon today subscibers)
-              </p>
+              <p>(Get <span>30% OFF</span> coupon today subscibers)</p>
             </div>
             <div className="detail">
-              <p>
-                <span>Join 226.000+ subscribers</span> and get a new discount
-                coupon on every Monday.
-              </p>
+              <p><span>Join 226.000+ subscribers</span> and get a new discount coupon on every Monday.</p>
             </div>
             <div className="box">
               <input type="text" placeholder="Enter Your Email"></input>
@@ -259,7 +256,7 @@ const Home = ({ product, addtocart }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
 export default Home;
